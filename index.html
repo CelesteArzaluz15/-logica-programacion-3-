@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Calculadora de Factorial</title>
+  <title>Calculadora de Factores</title>
   <style>
-    /* Reset y fuente */
+  
     * {
       box-sizing: border-box;
     }
@@ -20,7 +20,7 @@
       color: #333;
     }
 
-    /* Contenedor estilo calculadora */
+  
     .calculadora {
       background: white;
       padding: 30px 40px;
@@ -77,14 +77,14 @@
       color: #004aad;
     }
     #resultado.error {
-      color: #d93025; /* rojo error */
+      color: #d93025; 
       font-weight: 700;
     }
   </style>
 </head>
 <body>
   <div class="calculadora">
-    <h1>Calculadora de Factorial</h1>
+    <h1>Calculadora de Factores</h1>
     <input type="number" id="numero" placeholder="Escribe un número entero positivo" />
     <button id="btnCalcular">Calcular</button>
     <p id="resultado"></p>
@@ -112,7 +112,7 @@
       resultado.classList.remove("error");
 
       if (isNaN(valor) || !esEnteroPositivo(valor)) {
-        resultado.textContent = "⚠ Error: Debes ingresar un número entero positivo.";
+        resultado.textContent = "Debes ingresar numeros enteros";
         resultado.classList.add("error");
         inputNumero.value = "";
         inputNumero.focus();
