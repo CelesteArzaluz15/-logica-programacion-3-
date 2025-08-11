@@ -6,6 +6,6 @@ mensaje de error y volver a solicitar el dato.
 . Prueba tu programa con las siguientes entradas para asegurarte que funcione correctamente:
   - Entrada: 5
   - Salida: 120
-  -Entrada:6
+  - Entrada:6
   - Salida:720
 · Pruébalo con los números que se te ocurran.
