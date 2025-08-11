@@ -7,5 +7,5 @@ mensaje de error y volver a solicitar el dato.
   - Entrada: 5
   - Salida: 120
   - Entrada:6
-  - Salida:720
+  - Salida:720   
 · Pruébalo con los números que se te ocurran.
