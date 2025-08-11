@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora de Factorial</title>
+  <style>
+    /* Reset y fuente */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+    }
+
+    /* Contenedor estilo calculadora */
+    .calculadora {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      text-align: center;
+    }
+
+    .calculadora h1 {
+      margin-bottom: 20px;
+      color: #004aad;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      border: 2px solid #66a6ff;
+      border-radius: 8px;
+      transition: border-color 0.3s ease;
+    }
+    input[type="number"]:focus {
+      outline: none;
+      border-color: #004aad;
+      box-shadow: 0 0 8px #004aadaa;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #004aad;
+      color: white;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+    }
+    button:hover {
+      background: #00337f;
+    }
+    button:active {
+      background: #002a5c;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      min-height: 30px;
+      color: #004aad;
+    }
+    #resultado.error {
+      color: #d93025; /* rojo error */
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculadora">
+    <h1>Calculadora de Factorial</h1>
+    <input type="number" id="numero" placeholder="Escribe un número entero positivo" />
+    <button id="btnCalcular">Calcular</button>
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    const inputNumero = document.getElementById("numero");
+    const btnCalcular = document.getElementById("btnCalcular");
+    const resultado = document.getElementById("resultado");
+
+    function esEnteroPositivo(num) {
+      return Number.isInteger(num) && num >= 0;
+    }
+
+    function calcularFactorial(n) {
+      let fact = 1;
+      for (let i = 1; i <= n; i++) {
+        fact *= i;
+      }
+      return fact;
+    }
+
+    btnCalcular.addEventListener("click", () => {
+      let valor = Number(inputNumero.value);
+      resultado.classList.remove("error");
+
+      if (isNaN(valor) || !esEnteroPositivo(valor)) {
+        resultado.textContent = "⚠ Error: Debes ingresar un número entero positivo.";
+        resultado.classList.add("error");
+        inputNumero.value = "";
+        inputNumero.focus();
+        console.clear();
+        console.error("Entrada inválida");
+        return;
+      }
+
+      const fact = calcularFactorial(valor);
+      resultado.textContent = `El factorial de ${valor} es: ${fact}`;
+      console.clear();
+      console.log(`El factorial de ${valor} es: ${fact}`);
+    });
+
+    inputNumero.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        btnCalcular.click();
+      }
+    });
+  </script>
+</body>
+</html>
